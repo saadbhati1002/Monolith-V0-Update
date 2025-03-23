@@ -38,6 +38,33 @@
             $(this).closest('.location').find('.location_list_results').append(clonedlocation);
         });
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#profile-form").validate({
+            rules: {
+                content_value: {
+                    required: true,
+                },
+            },
+            messages: {
+                content_value: {
+                    required: "The content value field is required",
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endpush
 @section('content')
     <div class="row">
@@ -80,7 +107,7 @@
                                     @foreach ($HomePage as $section)
                                         <div class="tab-pane" id="profile_tab_{{ $section->id }}" role="tabpanel"
                                             aria-labelledby="footer_column_1">
-                                            {{ Form::model($section, ['route' => ['homepage.update', $section->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) }}
+                                            {{ Form::model($section, ['route' => ['homepage.update', $section->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data','id'=>'profile-form']) }}
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">

@@ -2,7 +2,7 @@
     $user=\Auth::user();
     $tenant=$user->tenants;
 @endphp
-{{Form::model($maintenanceRequest, array('route' => array('maintenance-request.update', $maintenanceRequest->id), 'method' => 'PUT','enctype' => "multipart/form-data")) }}
+{{Form::model($maintenanceRequest, array('route' => array('maintenance-request.update', $maintenanceRequest->id), 'method' => 'PUT','enctype' => "multipart/form-data",'id'=>'edit-maintenance-request-form')) }}
 <div class="modal-body">
     <div class="row">
         @if($user->type=='tenant')
@@ -97,5 +97,70 @@
     $('#property_id').trigger('change');
 </script>
 
-
+<script>
+    $(document).ready(function () {
+        $("#edit-maintenance-request-form").validate({
+            rules: {
+                property_id: {
+                    required: true,
+                },
+                unit_id:{
+                    required:true
+                },
+                request_date: {
+                    required: true
+                },
+                maintainer_id:{
+                    required:true
+                },
+                issue_type:{
+                    required:true
+                },
+                status:{
+                    required:true
+                },
+                issue_attachment:{
+                    required:true
+                },
+                notes:{
+                    required:true
+                }
+            },
+            messages: {
+                property_id: {
+                    required: "The property field required",
+                },
+                unit_id:{
+                    required:"The unit field required"
+                },
+                request_date: {
+                    required: "The request date field required"
+                },
+                maintainer_id:{
+                    required:"The maintainer field required"
+                },
+                issue_type:{
+                    required:"The issue type field required"
+                },
+                status:{
+                    required:"The status field required"
+                },
+                issue_attachment:{
+                    required:"The issue attachment field required"
+                },
+                notes:{
+                    required:"The notes field required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 

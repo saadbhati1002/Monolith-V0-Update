@@ -1,4 +1,4 @@
-{{Form::model($coupon, array('route' => array('coupons.update', $coupon->id), 'method' => 'PUT')) }}
+{{Form::model($coupon, array('route' => array('coupons.update', $coupon->id), 'method' => 'PUT','id'=>'edit-coupon-form')) }}
 <div class="modal-body">
     <div class="row">
         <div class="form-group  col-md-6">
@@ -39,6 +39,72 @@
     {{Form::submit(__('Update'),array('class'=>'btn btn-secondary btn-rounded'))}}
 </div>
 {{ Form::close() }}
+<script>
+    $(document).ready(function () {
+        $("#edit-coupon-form").validate({
+            rules: {
+                name:{
+                    required:true
+                },
+                type: {
+                    required: true,
+                },
+                code:{
+                    required:true
+                },
+                rate:{
+                    required:true
+                },
+                valid_for:{
+                    required:true
+                },
+                use_limit:{
+                    required:true
+                },
+                applicable_packages:{
+                    required:true
+                },
+                status:{
+                    required:true
+                }
+            },
+            messages: {
+                name:{
+                    required:"The name field is required"
+                },
+                type: {
+                    required: "The type field is required",
+                },
+                code:{
+                    required:"The code field is required"
+                },
+                rate:{
+                    required:"The rate field is required"
+                },
+                valid_for:{
+                    required:"The valid for field is required"
+                },
+                use_limit:{
+                    required:"The user limit field is required"
+                },
+                applicable_packages:{
+                    required:"The applicable packages field is required"
+                },
+                status:{
+                    required:"The status field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 
 
 

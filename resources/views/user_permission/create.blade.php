@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'permission')) }}
+{{ Form::open(array('url' => 'permission','id'=>'permission-form')) }}
 <div class="modal-body">
     <div class="row">
         <div class="form-group ">
@@ -15,5 +15,35 @@
     </div>
 </div>
 {{ Form::close() }}
+<script>
+    $(document).ready(function () {
+        $("#permission-form").validate({
+            rules: {
+                title:{
+                    required:true,
+                },
+                user_roles:{
+                    required:true
+                },
+            },
+            messages: {
+                title:{
+                    required:"The title field is required",
+                },
+                user_roles:{
+                    required:"The role field is required"
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 
 

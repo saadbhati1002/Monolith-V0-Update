@@ -24,6 +24,47 @@
             $(this).closest('.location').find('.location_list_results').append(clonedlocation);
         });
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#loginForm").validate({
+            rules: {
+                title: {
+                    required: true,
+                    email:true
+                },
+                description: {
+                    required: true,
+                },
+                password_confirmation: {
+                    required: true,
+                }
+            },
+            messages: {
+                email: {
+                    required: "The email field is required",
+                    email:"Please enter a valid email address"
+                },
+                password: {
+                    required: "The password field is required",
+                },
+                password_confirmation: {
+                    required: "The password confirmation field is required",
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endpush
 
 
@@ -32,7 +73,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    {{ Form::model($authPage, ['route' => ['authPage.update', $authPage->id ?? 1], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) }}
+                    {{ Form::model($authPage, ['route' => ['authPage.update', $authPage->id ?? 1], 'method' => 'PUT', 'enctype' => 'multipart/form-data','id'=>'auth-page-form']) }}
                     <div class="row">
 
                         <div class="col form-group">

@@ -84,6 +84,81 @@
             }
         }
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#invoice_form").validate({
+            rules: {
+                property_id: {
+                    required: true,
+                },
+                unit_id:{
+                    required:true
+                },
+                invoice_id:{
+                    required:true
+                },
+                invoice_month:{
+                    required:true
+                },
+                end_date:{
+                    required:true
+                },
+                notes:{
+                    required:true
+                },
+                invoice_type:{
+                    required:true
+                },
+                amount:{
+                    required:true
+                },
+                description:{
+                    required:true
+                }
+            },
+            messages: {
+                property_id: {
+                    required: "The property field is required",
+                },
+                unit_id:{
+                    required:"The unit field is required"
+                },
+                invoice_id:{
+                    required:"The invoice number field is required"
+                },
+                invoice_month:{
+                    required:"The invoice month field is required"
+                },
+                end_date:{
+                    required:"The end date field is required"
+                },
+                notes:{
+                    required:"The notes field is required"
+                },
+                invoice_type:{
+                    required:"The invoice type field is required"
+                },
+                amount:{
+                    required:"The amount field is required"
+                },
+                description:{
+                    required:"The description field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endpush
 
 @section('breadcrumb')

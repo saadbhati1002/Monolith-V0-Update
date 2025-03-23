@@ -7,6 +7,40 @@
     <li class="breadcrumb-item"><a href="{{ route('role.index') }}">{{ __('Role') }}</a></li>
     <li class="breadcrumb-item" aria-current="Edit"> {{ __('Edit') }}</li>
 @endsection
+@push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#property_form").validate({
+            rules: {
+                title: {
+                    required: true,
+                },
+                user_permission:{
+                    required:true
+                }
+            },
+            messages: {
+                title: {
+                    required: "The title field is required",
+                },
+                user_permission:{
+                    required:"The user permission field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+@endpush
+
 
 @section('content')
     @php

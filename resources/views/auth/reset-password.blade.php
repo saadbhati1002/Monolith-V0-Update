@@ -2,7 +2,47 @@
 @section('tab-title')
     {{ __('Reset Password') }}
 @endsection
-
+@push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#loginForm").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email:true
+                },
+                password: {
+                    required: true,
+                },
+                password_confirmation: {
+                    required: true,
+                }
+            },
+            messages: {
+                email: {
+                    required: "The email field is required",
+                    email:"Please enter a valid email address"
+                },
+                password: {
+                    required: "The password field is required",
+                },
+                password_confirmation: {
+                    required: "The password confirmation field is required",
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+@endpush
 @section('content')
     <div class="card">
         <div class="card-body">

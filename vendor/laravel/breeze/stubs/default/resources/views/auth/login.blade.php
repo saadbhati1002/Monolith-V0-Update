@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" id="loginForm">
         @csrf
 
         <!-- Email Address -->
@@ -44,4 +44,34 @@
             </x-primary-button>
         </div>
     </form>
+    @push('script-page')
+    <script>
+        $(document).ready(function () {
+            $("#loginForm").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "Email is required",
+                        email: "Enter a valid email address"
+                    },
+                    password: {
+                        required: "Password is required",
+                        minlength: "Password must be at least 6 characters"
+                    }
+                },
+                errorClass: "text-red-500 text-sm",
+                errorElement: "span"
+            });
+        });
+    </script>
+    @endpush
 </x-guest-layout>

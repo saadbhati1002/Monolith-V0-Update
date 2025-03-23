@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'unit/direct-store','method'=>'post','enctype' => "multipart/form-data")) }}
+{{ Form::open(array('url' => 'unit/direct-store','method'=>'post','enctype' => "multipart/form-data",'id'=>'create-unit-form')) }}
 <div class="modal-body">
     <div class="row">
         <div class=" col-md-12 row">
@@ -92,5 +92,126 @@
         input1.prop('disabled', true);
         var input2= $('.'+type).find('input');
         input2.prop('disabled', false);
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#create-unit-form").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                property_id:{
+                    required:true
+                },
+                bedroom: {
+                    required: true
+                },
+                kitchen:{
+                    required:true
+                },
+                baths:{
+                    required:true
+                },
+                rent:{
+                    required:true
+                },
+                rent_type:{
+                    required:true
+                },
+                rent_duration:{
+                    required:true
+                },
+                start_date:{
+                    required:true
+                },
+                end_date:{
+                    required:true
+                },
+                payment_due_date:{
+                    required:true
+                },
+                deposit_type:{
+                    required:true
+                },
+                deposit_amount:{
+                    required:true
+                },
+                late_fee_type:{
+                    required:true
+                },
+                late_fee_amount:{
+                    required:true
+                },
+                incident_receipt_amount:{
+                    required:true
+                },
+                notes:{
+                    required:true
+                }
+            },
+            messages: {
+                name: {
+                    required: "The name field is required",
+                },
+                property_id:{
+                    required:"The property field is required"
+                },
+                bedroom: {
+                    required: "The bedroom field is required"
+                },
+                kitchen:{
+                    required:"The kitchen field is required"
+                },
+                baths:{
+                    required:"The baths field is required"
+                },
+                rent:{
+                    required:"The rent field is required"
+                },
+                rent_type:{
+                    required:"The rent type field is required"
+                },
+                rent_duration:{
+                    required:"The rent duration field is required"
+                },
+                start_date:{
+                    required:"The start date field is required"
+                },
+                end_date:{
+                    required:"The end date field is required"
+                },
+                payment_due_date:{
+                    required:"The payment due date field is required"
+                },
+                deposit_type:{
+                    required:"The deposit type field is required"
+                },
+                deposit_amount:{
+                    required:"The deposit amount field is required"
+                },
+                late_fee_type:{
+                    required:"The late fee type field is required"
+                },
+                late_fee_amount:{
+                    required:"The late fee amount field is required"
+                },
+                incident_receipt_amount:{
+                    required:"The incident receipt field is required"
+                },
+                notes:{
+                    required:"The notes field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
     });
 </script>

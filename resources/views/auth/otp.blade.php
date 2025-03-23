@@ -6,6 +6,32 @@
     {{ __('Login') }}
 @endsection
 @push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#loginForm").validate({
+            rules: {
+                otp: {
+                    required: true,
+                }
+            },
+            messages: {
+                otp: {
+                    required: "The OTP field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endpush
 @section('content')
 <style>

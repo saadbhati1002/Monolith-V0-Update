@@ -7,6 +7,7 @@
     <li class="breadcrumb-item" aria-current="page"> {{ __('Tenant') }}</li>
 @endsection
 
+
 @section('content')
     <div class="row">
         <div class="col-sm-12">

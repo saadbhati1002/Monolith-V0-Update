@@ -12,6 +12,9 @@
         </li>
     </ul>
 @endsection
+@push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+@endpush
 @section('card-action-btn')
     @if(Gate::check('create support') || \Auth::user()->type=='super admin')
         <a class="btn btn-secondary btn-sm ml-20 customModal" href="#" data-size="md"

@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'subscriptions')) }}
+{{ Form::open(array('url' => 'subscriptions','id'=>'create-subscription-form')) }}
 <div class="modal-body">
     <div class="row">
         <div class="form-group">
@@ -38,4 +38,58 @@
     {{Form::submit(__('Create'),array('class'=>'btn btn-secondary btn-rounded'))}}
 </div>
 {{ Form::close() }}
+<script>
+    $(document).ready(function () {
+        $("#create-subscription-form").validate({
+            rules: {
+                title:{
+                    required:true
+                },
+                interval: {
+                    required: true,
+                },
+                package_amount:{
+                    required:true
+                },
+                user_limit:{
+                    required:true
+                },
+                property_limit:{
+                    required:true
+                },
+                tenant_limit:{
+                    required:true
+                }
+            },
+            messages: {
+                title:{
+                    required:"The title field is required"
+                },
+                interval: {
+                    required: "The interval field is required",
+                },
+                package_amount:{
+                    required:"The package amount field is required"
+                },
+                user_limit:{
+                    required:"The user limit field is required"
+                },
+                property_limit:{
+                    required:"The property limit field is required"
+                },
+                tenant_limit:{
+                    required:"The tenant limit field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 

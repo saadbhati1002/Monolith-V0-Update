@@ -85,6 +85,163 @@
             });
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#property_form").validate({
+                rules: {
+                    type: {
+                        required: true,
+                    },
+                    name:{
+                        required:true
+                    },
+                    thumbnail:{
+                        required:true
+                    },
+                    description:{
+                        required:true
+                    },
+                    country:{
+                        required:true
+                    },
+                    state:{
+                        required:true
+                    },
+                    city:{
+                        required:true
+                    },
+                    zip_code:{
+                        required:true
+                    },
+                    address:{
+                        required:true
+                    },
+                    unitname:{
+                        required:true
+                    },
+                    bedroom:{
+                        required:true
+                    },
+                    rent:{
+                        required:true
+                    },
+                    rent_type:{
+                        required:true
+                    },
+                    rent_duration:{
+                        required:true
+                    },
+                    start_date:{
+                        required:true
+                    },
+                    end_date:{
+                        required:true
+                    },
+                    payment_due_date:{
+                        required:true
+                    },
+                    deposit_type:{
+                        required:true
+                    },
+                    deposit_amount:{
+                        required:true
+                    },
+                    late_fee_type:{
+                        required:true
+                    },
+                    late_fee_amount:{
+                        required:true
+                    },
+                    incident_receipt_amount:{
+                        required:true
+                    },
+                    notes:{
+                        required:true
+                    }
+                },
+                messages: {
+                    type: {
+                        required: "The type field is required",
+                    },
+                    name:{
+                        required:"The name field is required"
+                    },
+                    thumbnail:{
+                        required:"The thumbnail field is required"
+                    },
+                    description:{
+                        required:"The description field is required"
+                    },
+                    country:{
+                        required:"The country field is required"
+                    },
+                    state:{
+                        required:"The state field is required"
+                    },
+                    city:{
+                        required:"The city field is required"
+                    },
+                    zip_code:{
+                        required:"The zip code field is required"
+                    },
+                    address:{
+                        required:"The address field is required"
+                    },
+                    unitname:{
+                        required:"The unit name field is required"
+                    },
+                    bedroom:{
+                        required:"The bedroom field is required"
+                    },
+                    rent:{
+                        required:"The rent field is required"
+                    },
+                    rent_type:{
+                        required:"The rent type field is required"
+                    },
+                    rent_duration:{
+                        required:"The rent duration field is required"
+                    },
+                    start_date:{
+                        required:"The start date field is required"
+                    },
+                    end_date:{
+                        required:"The end date field is required"
+                    },
+                    payment_due_date:{
+                        required:"The payment due date field is required"
+                    },
+                    deposit_type:{
+                        required:"The deposit type field is required"
+                    },
+                    deposit_amount:{
+                        required:"The deposit amount field is required"
+                    },
+                    late_fee_type:{
+                        required:"The late fee type field is required"
+                    },
+                    late_fee_amount:{
+                        required:"The late fee amount field is required"
+                    },
+                    incident_receipt_amount:{
+                        required:"The incident receipt amount field is required"
+                    },
+                    notes:{
+                        required:"The notes field is required"
+                    }
+                },
+                errorClass: "text-danger",
+                errorElement: "span",
+                highlight: function (element) {
+                    $(element).addClass("is-invalid");
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass("is-invalid");
+                }
+            });
+        });
+    </script>
 @endpush
 @section('breadcrumb')
     <ul class="breadcrumb mb-0">

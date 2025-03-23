@@ -118,6 +118,122 @@
             });
         });
     </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#tenant_form").validate({
+            rules: {
+                first_name:{
+                    required:true,
+                },
+                last_name:{
+                    required:true
+                },
+                email:{
+                    required:true
+                },
+                password:{
+                    required:true
+                },
+                phone_number:{
+                    required:true
+                },
+                family_member:{
+                    required:true
+                },
+                profile:{
+                    required:true
+                },
+                country:{
+                    required:true
+                },
+                state:{
+                    required:true
+                },
+                city:{
+                    required:true
+                },
+                zip_code:{
+                    required:true
+                },
+                address:{
+                    required:true
+                },
+                property:{
+                    required:true
+                },
+                unit:{
+                    required:true
+                },
+                lease_start_date:{
+                    required:true
+                },
+                lease_end_date:{
+                    required:true
+                }
+            },
+            messages: {
+                first_name:{
+                    required:"The first name field is required",
+                },
+                last_name:{
+                    required:"The last name field is required"
+                },
+                email:{
+                    required:"The email field is required"
+                },
+                password:{
+                    required:"The password field is required"
+                },
+                phone_number:{
+                    required:"The phone number field is required"
+                },
+                family_member:{
+                    required:"The family member field is required"
+                },
+                profile:{
+                    required:"The profile field is required"
+                },
+                country:{
+                    required:"The country field is required"
+                },
+                state:{
+                    required:"The state field is required"
+                },
+                city:{
+                    required:"The city field is required"
+                },
+                zip_code:{
+                    required:"The zip code field is required"
+                },
+                address:{
+                    required:"The address field is required"
+                },
+                property:{
+                    required:"The property field is required"
+                },
+                unit:{
+                    required:"The unit field is required"
+                },
+                lease_start_date:{
+                    required:"The lease start date field is required"
+                },
+                lease_end_date:{
+                    required:"The lease end date field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endpush
 
 @section('breadcrumb')

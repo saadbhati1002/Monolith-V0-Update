@@ -8,6 +8,9 @@
     <li class="breadcrumb-item" aria-current="page"> {{ __('Units') }}</li>
 @endsection
 
+@push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+@endpush
 
 @section('content')
     <div class="row">

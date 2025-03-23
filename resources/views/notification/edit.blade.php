@@ -1,4 +1,4 @@
-{{ Form::model($notification, ['route' => ['notification.update', $notification->id], 'method' => 'PUT']) }}
+{{ Form::model($notification, ['route' => ['notification.update', $notification->id], 'method' => 'PUT','id'=>'notification-form']) }}
 <div class="modal-body">
     <div class="row">
         <div class="form-group col-md-6">
@@ -114,4 +114,41 @@
         });
 
 
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#notification-form").validate({
+            rules: {
+                module: {
+                    required: true,
+                },
+                subject:{
+                    required:true
+                },
+                message:{
+                    required:true
+                }
+            },
+            messages: {
+                name: {
+                    required: "The name field is required",
+                },
+                subject:{
+                    required:"The subject field is required"
+                },
+                message:{
+                    required:"The message field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
 </script>

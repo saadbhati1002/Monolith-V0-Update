@@ -11,6 +11,344 @@
     $profile = asset(Storage::url('upload/profile'));
     $activeTab = session('tab', 'user_profile_settings');
 @endphp
+@push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#footer-setting-form").validate({
+            rules: {
+                name:{
+                    required:true
+                },
+                email: {
+                    required: true,
+                    email:true
+                }
+            },
+            messages: {
+                name:{
+                    required:"The name field is required"
+                },
+                email: {
+                    required: "The email field is required",
+                    email: "Please enter a valid email address",
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#password-setting-form").validate({
+            rules: {
+                current_password:{
+                    required:true
+                },
+                new_password: {
+                    required: true,
+                },
+                confirm_password:{
+                    required:true
+                }
+            },
+            messages: {
+                current_password:{
+                    required:"The current password field is required"
+                },
+                new_password: {
+                    required: "The new password field is required",
+                },
+                confirm_password:{
+                    required:"The confirm password field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#general-setting-form").validate({
+            rules: {
+                application_name:{
+                    required:true
+                },
+                logo: {
+                    required: true,
+                },
+                light_logo:{
+                    required:true
+                },
+                landing_logo:{
+                    required:true
+                },
+                pricing_feature:{
+                    required:true
+                }
+            },
+            messages: {
+                application_name:{
+                    required:"The application name field is required"
+                },
+                logo: {
+                    required: "The logo field is required",
+                },
+                light_logo:{
+                    required:"The light logo field is required"
+                },
+                landing_logo:{
+                    required:"The landing logo field is required"
+                },
+                pricing_feature:{
+                    required:"The pricing feature field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#company-setting-form").validate({
+            rules: {
+                company_name:{
+                    required:true
+                },
+                company_email: {
+                    required: true,
+                },
+                company_phone:{
+                    required:true
+                },
+                company_address:{
+                    required:true
+                },
+                CURRENCY_SYMBOL:{
+                    required:true
+                },
+                timezone:{
+                    required:true
+                },
+                invoice_number_prefix:{
+                    required:true
+                },
+                expense_number_prefix:{
+                    required:true
+                },
+                company_zipcode:{
+                    required:true
+                }
+            },
+            messages: {
+                company_name:{
+                    required:"The company name field is required"
+                },
+                company_email: {
+                    required: "The company email field is required",
+                },
+                company_phone:{
+                    required:"The company phone field is required"
+                },
+                company_address:{
+                    required:"The company address field is required"
+                },
+                CURRENCY_SYMBOL:{
+                    required:"The currency field is required"
+                },
+                timezone:{
+                    required:"The timezone field is required"
+                },
+                invoice_number_prefix:{
+                    required:"The invoice number prefix field is required"
+                },
+                expense_number_prefix:{
+                    required:"The expense number prefix field is required"
+                },
+                company_zipcode:{
+                    required:"The company zipcode field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#email-setting-form").validate({
+            rules: {
+                sender_name:{
+                    required:true
+                },
+                sender_email: {
+                    required: true,
+                },
+                server_driver:{
+                    required:true
+                },
+                server_host:{
+                    required:true
+                },
+                server_username:{
+                    required:true
+                },
+                server_password:{
+                    required:true
+                },
+                server_encryption:{
+                    required:true
+                },
+                server_port:{
+                    required:true
+                }
+            },
+            messages: {
+                csender_name:{
+                    required:"The sender name field is required"
+                },
+                sender_email: {
+                    required: "The sender email field is required",
+                },
+                server_driver:{
+                    required:"The server driver field is required"
+                },
+                server_host:{
+                    required:"The server host field is required"
+                },
+                server_username:{
+                    required:"The server username field is required"
+                },
+                server_password:{
+                    required:"The server password field is required"
+                },
+                server_encryption:{
+                    required:"The server encryption field is required"
+                },
+                server_port:{
+                    required:"The server port field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#payment-setting-form").validate({
+            rules: {
+                CURRENCY_SYMBOL:{
+                    required:true
+                },
+                CURRENCY: {
+                    required: true,
+                }
+            },
+            messages: {
+                CURRENCY_SYMBOL:{
+                    required:"The currency symbol field is required"
+                },
+                CURRENCY: {
+                    required: "The currency field is required",
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#seo-setting-form").validate({
+            rules: {
+                meta_seo_title:{
+                    required:true
+                },
+                meta_seo_keyword: {
+                    required: true,
+                },
+                meta_seo_description:{
+                    required:true
+                },
+                meta_seo_image:{
+                    required:true
+                }
+            },
+            messages: {
+                meta_seo_title:{
+                    required:"The meta seo title field required"
+                },
+                meta_seo_keyword: {
+                    required: "The meta seo keyword field required",
+                },
+                meta_seo_description:{
+                    required:"The meta seo description field required"
+                },
+                meta_seo_image:{
+                    required:"The meta seo image field required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+
+        $("#google-recaptcha-form").validate({
+            rules: {
+                google_recaptcha:{
+                    required:true
+                },
+                recaptcha_key: {
+                    required: true,
+                }
+            },
+            messages: {
+                google_recaptcha:{
+                    required:"The google_recaptcha field is required"
+                },
+                recaptcha_key: {
+                    required: "The recaptcha key field is required",
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+@endpush
 @section('content')
     <div class="row">
         <div class="col-sm-12">
@@ -173,7 +511,7 @@
                                 @if (Gate::check('manage account settings'))
                                     <div class="tab-pane {{ empty($activeTab) || $activeTab == 'user_profile_settings' ? ' active show ' : '' }}" id="user_profile_settings" role="tabpanel"
                                         aria-labelledby="user_profile_settings">
-                                        {{ Form::model($loginUser, ['route' => ['setting.account'], 'method' => 'post', 'enctype' => 'multipart/form-data']) }}
+                                        {{ Form::model($loginUser, ['route' => ['setting.account'], 'method' => 'post', 'enctype' => 'multipart/form-data','id'=>'footer-setting-form']) }}
                                         <div class="d-flex align-items-center mb-3">
                                             <div class="flex-shrink-0">
                                                 <img src="{{ !empty($users->profile) ? $profile . '/' . $users->profile : $profile . '/avatar.png' }}"
@@ -212,7 +550,7 @@
                                 @if (Gate::check('manage password settings'))
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'password_settings' ? ' active show ' : '' }}" id="password_settings" role="tabpanel"
                                         aria-labelledby="password_settings">
-                                        {{ Form::model($loginUser, ['route' => ['setting.password'], 'method' => 'post']) }}
+                                        {{ Form::model($loginUser, ['route' => ['setting.password'], 'method' => 'post','id'=>'password-setting-form']) }}
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -245,7 +583,7 @@
                                 @if (Gate::check('manage general settings'))
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'general_settings' ? ' active show ' : '' }}" id="general_settings" role="tabpanel"
                                         aria-labelledby="general_settings">
-                                        {{ Form::model($settings, ['route' => ['setting.general'], 'method' => 'post', 'enctype' => 'multipart/form-data']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.general'], 'method' => 'post', 'enctype' => 'multipart/form-data','id'=>'general-setting-form']) }}
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -340,7 +678,7 @@
                                 @if (Gate::check('manage company settings'))
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'company_settings' ? ' active show ' : '' }}" id="company_settings" role="tabpanel"
                                         aria-labelledby="company_settings">
-                                        {{ Form::model($settings, ['route' => ['setting.company'], 'method' => 'post']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.company'], 'method' => 'post','id'=>'company-setting-form']) }}
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 {{ Form::label('company_name', __('Name'), ['class' => 'form-label']) }}
@@ -464,7 +802,7 @@
                                 @if (Gate::check('manage email settings'))
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'email_SMTP_settings' ? ' active show ' : '' }}" id="email_SMTP_settings" role="tabpanel"
                                         aria-labelledby="email_SMTP_settings">
-                                        {{ Form::model($settings, ['route' => ['setting.smtp'], 'method' => 'post']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.smtp'], 'method' => 'post','id'=>'email-setting-form']) }}
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 {{ Form::label('sender_name', __('Sender Name'), ['class' => 'form-label']) }}
@@ -513,7 +851,7 @@
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'payment_settings' ? ' active show ' : '' }}" id="payment_settings" role="tabpanel"
                                         aria-labelledby="payment_settings">
 
-                                        {{ Form::model($settings, ['route' => ['setting.payment'], 'method' => 'post']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.payment'], 'method' => 'post','id'=>'payment-setting-form']) }}
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 {{ Form::label('CURRENCY_SYMBOL', __('Currency Icon'), ['class' => 'form-label']) }}
@@ -675,7 +1013,7 @@
                                 @if (Gate::check('manage seo settings'))
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'site_SEO_settings' ? ' active show ' : '' }}" id="site_SEO_settings" role="tabpanel"
                                         aria-labelledby="site_SEO_settings">
-                                        {{ Form::model($settings, ['route' => ['setting.site.seo'], 'method' => 'post', 'enctype' => 'multipart/form-data']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.site.seo'], 'method' => 'post', 'enctype' => 'multipart/form-data','id'=>'seo-setting-form']) }}
                                         <div class="row">
 
                                             <div class="col-xl-12 col-lg-12">
@@ -732,7 +1070,7 @@
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == 'google_recaptcha_settings' ? ' active show ' : '' }}" id="google_recaptcha_settings" role="tabpanel"
                                         aria-labelledby="google_recaptcha_settings">
 
-                                        {{ Form::model($settings, ['route' => ['setting.google.recaptcha'], 'method' => 'post']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.google.recaptcha'], 'method' => 'post','id'=>'google-recaptcha-form']) }}
                                         <div class="row mt-2">
                                             <div class="col-auto">
                                                 {{ Form::label('google_recaptcha', __('Google ReCaptcha Enable'), ['class' => 'form-label']) }}
@@ -773,7 +1111,7 @@
                                     <div class="tab-pane {{ !empty($activeTab) && $activeTab == '2FA' ? ' active show ' : '' }}"
                                         id="2FA" role="tabpanel" aria-labelledby="2FA">
 
-                                        {{ Form::model($settings, ['route' => ['setting.twofa.enable'], 'method' => 'post']) }}
+                                        {{ Form::model($settings, ['route' => ['setting.twofa.enable'], 'method' => 'post','id'=>'2fa-setting-form']) }}
                                         <div class="row mt-2">
                                             <div class="col-12">
                                                 @if (empty(\Auth::user()->twofa_secret))

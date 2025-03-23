@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'maintainer','enctype' => "multipart/form-data")) }}
+{{ Form::open(array('url' => 'maintainer','enctype' => "multipart/form-data",'id'=>'create-maintainer-form')) }}
 <div class="modal-body">
     <div class="row">
         <div class="form-group col-md-6 col-lg-6">
@@ -40,3 +40,66 @@
     {{Form::submit(__('Create'),array('class'=>'btn btn-secondary btn-rounded'))}}
 </div>
 {{ Form::close() }}
+
+<script>
+    $(document).ready(function () {
+        $("#create-maintainer-form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password:{
+                    required:true
+                },
+                phone_number: {
+                    required: true
+                },
+                first_name:{
+                    required:true
+                },
+                last_name:{
+                    required:true
+                },
+                property_id:{
+                    required:true
+                },
+                type_id:{
+                    required:true
+                }
+            },
+            messages: {
+                email: {
+                    required: "The email field is required",
+                    email: "Enter a valid email address"
+                },
+                phone_number: {
+                    required: "The phone number field is required"
+                },
+                first_name:{
+                    required:"The first name field is required"
+                },
+                last_name:{
+                    required:"The last name field is required"
+                },
+                password:{
+                    required:"The password field is required"
+                },
+                property_id:{
+                    required:"The property field is required"
+                },
+                type_id:{
+                    required:"The type field is required"
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>

@@ -7,7 +7,9 @@
     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a></li>
     <li class="breadcrumb-item" aria-current="page"> {{ __('Roles') }}</li>
 @endsection
-
+@push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+@endpush
 
 @section('content')
     <div class="row">

@@ -25,6 +25,133 @@
             $(activeTab).addClass('active show');
         });
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+
+<script>
+   
+    $(document).ready(function () {
+        $("#footer-column-1-form").validate({
+            rules: {
+                footer_column_1: {
+                    required: true,
+                },
+                footer_column_1_pages: {
+                    required: true,
+                },
+            },
+            messages: {
+                footer_column_1: {
+                    required: "The footer column 1 field is required",
+                },
+                footer_column_1_pages: {
+                    required: "The footer column 1 page field is required",
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#footer-column-2-form").validate({
+            rules: {
+                footer_column_2: {
+                    required: true,
+                },
+                footer_column_2_pages: {
+                    required: true,
+                },
+            },
+            messages: {
+                footer_column_2: {
+                    required: "The footer column 2 field is required",
+                },
+                footer_column_2_pages: {
+                    required: "The footer column 2 page field is required",
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#footer-column-3-form").validate({
+            rules: {
+                footer_column_3: {
+                    required: true,
+                },
+                footer_column_3_pages: {
+                    required: true,
+                },
+            },
+            messages: {
+                footer_column_3: {
+                    required: "The footer column 3 field is required",
+                },
+                footer_column_3_pages: {
+                    required: "The footer column 3 page field is required",
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#footer-column-4-form").validate({
+            rules: {
+                footer_column_4: {
+                    required: true,
+                },
+                footer_column_4_pages: {
+                    required: true,
+                },
+            },
+            messages: {
+                footer_column_4: {
+                    required: "The footer column 4 field is required",
+                },
+                footer_column_4_pages: {
+                    required: "The footer column 4 page field is required",
+                },
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 @endpush
 @section('content')
     <div class="row">
@@ -101,7 +228,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane" id="footer_column_1" role="tabpanel"
                                         aria-labelledby="footer_column_1">
-                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post']) }}
+                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post','id'=>'footer-column-1-form']) }}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -142,7 +269,7 @@
 
                                     <div class="tab-pane " id="footer_column_2" role="tabpanel"
                                         aria-labelledby="footer_column_2">
-                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post']) }}
+                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post','id'=>'footer-column-2-form']) }}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -183,7 +310,7 @@
 
                                     <div class="tab-pane " id="footer_column_3" role="tabpanel"
                                         aria-labelledby="footer_column_3">
-                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post']) }}
+                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post','id'=>'footer-column-3-form']) }}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -224,7 +351,7 @@
 
                                     <div class="tab-pane " id="footer_column_4" role="tabpanel"
                                         aria-labelledby="footer_column_4">
-                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post']) }}
+                                        {{ Form::model($loginUser, ['route' => ['setting.footer'], 'method' => 'post','id'=>'footer-column-4-form']) }}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">

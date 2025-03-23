@@ -3,6 +3,7 @@
     {{ __('Maintenance Request') }}
 @endsection
 @push('script-page')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 @endpush
 
 

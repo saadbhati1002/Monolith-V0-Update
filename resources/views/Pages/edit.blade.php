@@ -1,4 +1,4 @@
-{{Form::model($page, array('route' => array('pages.update', $page->id), 'method' => 'PUT')) }}
+{{Form::model($page, array('route' => array('pages.update', $page->id), 'method' => 'PUT','id'=>'edit-page-form')) }}
 <div class="modal-body">
     <div class="row">
         <div class="form-group  col-md-12">
@@ -23,4 +23,34 @@
     {{Form::submit(__('Update'),array('class'=>'btn btn-secondary btn-rounded'))}}
 </div>
 {{ Form::close() }}
+<script>
+    $(document).ready(function () {
+        $("#edit-page-form").validate({
+            rules: {
+                title:{
+                    required:true
+                },
+                content: {
+                    required: true,
+                }
+            },
+            messages: {
+                title:{
+                    required:"The title field is required"
+                },
+                content: {
+                    required: "The content field is required",
+                }
+            },
+            errorClass: "text-danger",
+            errorElement: "span",
+            highlight: function (element) {
+                $(element).addClass("is-invalid");
+            },
+            unhighlight: function (element) {
+                $(element).removeClass("is-invalid");
+            }
+        });
+    });
+</script>
 

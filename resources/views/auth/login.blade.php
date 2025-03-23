@@ -9,6 +9,39 @@
     @if ($settings['google_recaptcha'] == 'on')
         {!! NoCaptcha::renderJs() !!}
     @endif
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#loginForm").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "The email field is required",
+                        email: "Enter a valid email address"
+                    },
+                    password: {
+                        required: "The password field is required",
+                    }
+                },
+                errorClass: "text-danger",
+                errorElement: "span",
+                highlight: function (element) {
+                    $(element).addClass("is-invalid");
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass("is-invalid");
+                }
+            });
+        });
+    </script>
 @endpush
 @section('content')
     @php
